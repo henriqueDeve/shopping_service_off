@@ -1,5 +1,7 @@
 package com.example.shopping_service.Module;
 
+import com.example.shopping_service.DTO.ItemDTO;
+
 import javax.persistence.*;
 
 @Entity
@@ -35,5 +37,12 @@ public class Item {
 
     public void setPrice(Float price) {
         this.price = price;
+    }
+
+    public static Item convert(ItemDTO itemDTO) {
+        Item item = new Item();
+        item.setProductId(itemDTO.getProductId());
+        item.setPrice(itemDTO.getPrice());
+        return item;
     }
 }

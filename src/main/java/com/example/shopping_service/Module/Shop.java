@@ -1,8 +1,11 @@
 package com.example.shopping_service.Module;
 
+import com.example.shopping_service.DTO.ShopDTO;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "shop")
@@ -56,5 +59,18 @@ public class Shop {
 
     public void setItems(List<Item> items) {
         this.items = items;
+    }
+
+    public static Shop convert(ShopDTO shopDTO) {
+        Shop shop = new Shop();
+        shop.setUserId(shopDTO.getUserId());
+        shop.setTotal(shopDTO.getTotal());
+        shop.setDate(shopDTO.getDate());
+        shop.setItems(shopDTO
+                .getItemDTOS()
+                .stream()
+                .map(Item::convert)
+                .collect(Collectors.toList()));
+        return shop;
     }
 }

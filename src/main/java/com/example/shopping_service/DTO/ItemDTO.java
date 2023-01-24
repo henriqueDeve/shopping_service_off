@@ -1,5 +1,7 @@
 package com.example.shopping_service.DTO;
 
+import com.example.shopping_service.Module.Item;
+
 public class ItemDTO {
 
     private String productId;
@@ -19,5 +21,12 @@ public class ItemDTO {
 
     public void setPrice(Float price) {
         this.price = price;
+    }
+
+    public static ItemDTO convert(Item item) {
+        ItemDTO itemDTO = new ItemDTO();
+        itemDTO.setProductId(item.getProductId());
+        itemDTO.setPrice(item.getPrice());
+        return itemDTO;
     }
 }
