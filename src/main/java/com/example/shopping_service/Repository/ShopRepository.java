@@ -2,13 +2,15 @@ package com.example.shopping_service.Repository;
 
 import com.example.shopping_service.Module.Shop;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
 
-public interface ShopRepository  extends CrudRepository<Shop, Long> {
-    public List<Shop> findAllByUserIdentifier(String userIdentifier);
-    public List<Shop> findAllByTotalGreaterThan(Float total);
-    public List<Shop> findAllByDateGreaterThanEquals(Date date);
+@Repository
+public interface ShopRepository extends CrudRepository<Shop, Long> {
+    List<Shop> findAllByUserId(String userId);
+    List<Shop> findAllByTotalGreaterThan(Float total);
+    List<Shop> findAllByDateShop(Date date);
 }
 

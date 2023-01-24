@@ -16,7 +16,8 @@ public class Shop {
     @Column(name = "user_id")
     private String userId;
     private Float total;
-    private Date date;
+    @Column(name = "date_shop")
+    private Date dateShop;
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "item", joinColumns = @JoinColumn(name = "shop_id"))
     private List<Item> items;
@@ -45,12 +46,12 @@ public class Shop {
         this.total = total;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getDateShop() {
+        return dateShop;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDateShop(Date dateShop) {
+        this.dateShop = dateShop;
     }
 
     public List<Item> getItems() {
@@ -65,7 +66,7 @@ public class Shop {
         Shop shop = new Shop();
         shop.setUserId(shopDTO.getUserId());
         shop.setTotal(shopDTO.getTotal());
-        shop.setDate(shopDTO.getDate());
+        shop.setDateShop(shopDTO.getDateShop());
         shop.setItems(shopDTO
                 .getItemDTOS()
                 .stream()

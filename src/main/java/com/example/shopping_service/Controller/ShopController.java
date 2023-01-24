@@ -16,7 +16,6 @@ import java.util.List;
 @RestController
 public class ShopController {
     @Autowired
-    private
     ShopService shopService;
 
     @GetMapping("/shopping")
@@ -25,8 +24,7 @@ public class ShopController {
         return produtos;
     }
 
-    @GetMapping("/shopping/shopByUser/{userIdentifier}"
-    )
+    @GetMapping("/shopping/shopByUser/{userId}")
     public List<ShopDTO> getShops(@PathVariable String userIdentifier) {
         List<ShopDTO> produtos = shopService.getByUser(userIdentifier);
         return produtos;

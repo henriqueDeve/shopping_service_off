@@ -8,7 +8,7 @@ public class ShopDTO {
 
     private String userId;
     private Float total;
-    private Date date;
+    private Date dateShop;
     private List<ItemDTO> itemDTOS;
 
     public String getUserId() {
@@ -27,12 +27,12 @@ public class ShopDTO {
         this.total = total;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getDateShop() {
+        return dateShop;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDateShop(Date dateShop) {
+        this.dateShop = dateShop;
     }
 
     public List<ItemDTO> getItemDTOS() {
